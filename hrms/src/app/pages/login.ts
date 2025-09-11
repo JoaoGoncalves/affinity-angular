@@ -2,6 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { EmployeeService } from '../services/employee-service';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +34,7 @@ import { AuthService } from '../services/auth.service';
 export class Login {
   credentials = { email: '', password: '' };
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, /* private employeeService: EmployeeService */){}
 
   submit(){
     if(this.credentials.email && this.credentials.password){
