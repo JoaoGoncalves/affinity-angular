@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Login } from './pages/login';
 import { EmployeeService } from './services/employee-service';
+import { authGuard } from './shared/guards/auth-guard';
 
 export const routes: Routes = [
   { path: 'login', component: Login },
@@ -15,6 +16,7 @@ export const routes: Routes = [
   {
     path: 'employees',
     providers: [EmployeeService],
+    canActivate: [authGuard],
     loadChildren: () => import('./pages/employees/employees-routes').then( m => m.routes)
   }
 ];

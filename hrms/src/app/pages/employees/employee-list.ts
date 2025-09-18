@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { EmployeeService } from '../../services/employee-service';
 import { AsyncPipe, NgComponentOutlet, NgFor } from '@angular/common';
 
@@ -31,17 +31,14 @@ template: `
   styles: ``
 })
 export class EmployeeList {
+  employeeService = inject(EmployeeService);
+  employees$ =  this.employeeService.getEmployees();
 
-  employees$: any;
   isConfirmationOpen = true;
   confirmDialog: any;
 
-  constructor(private readonly employeeService: EmployeeService){
-    this.employees$ = this.employeeService.getEmployees();
-  }
-
   async showConfirmationDialog (){
-    const { ConfirmationDialog } =  await import('../../shared/confirmation-dialog');
+    const { ConfirmationDialog } =  await import('../../shared/components/confirmation-dialog');
     this.confirmDialog = ConfirmationDialog;
   }
 
