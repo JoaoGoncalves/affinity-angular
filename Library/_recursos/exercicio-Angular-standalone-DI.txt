@@ -1,0 +1,29 @@
+Exercicio Angular Standalone e DI:
+
+Criar um projeto do "zero", standalone, que irá consumir um modelo de dados na REST (MOOCK) API em: 
+https://my-json-server.typicode.com/JoaoGoncalves/biblio-api/books
+
+A aplicação deverár ter 4 "links" de navegação:
+- Home, com um texto qualquer, pagina inicial no arranque da aplicação
+- Books, com uma lista dos livros do modelo de dados em "Cards" e com informação de acordo com a imagem "books.png", usem as css que entenderem.
+- Contacts, com informação dummy...
+- Login / logout
+
+
+Pegar em tudo o que vimos até aqui, criar uma aplicação em que tudo é standalone, que deverá implementar:
+- so aceder a área de "books" se estiver autenticado (autenticacao sem server, simples como fizemos até aqui), criar um Guard como fizemos nos nossos exemplos (opcional: criar uma função para saber se estamos autenticados ou nao)
+- criar os serviços necessários, passa-los pela rota, ou como achar preferivel
+- carregar todas as componentes por lazy loading
+- em cada "Card" da lista, link para os detalhes do livro, através do titulo
+- Usar resolvers para garantir que os dados do livro (detalhes) estajam carregados antes de visualizar os mesmo.
+- criar um interceptor para simular um token de autenticação, para todas as chamadas http.
+
+**** OPCIONAL ****
+- acrescentar a cada "Card" da lista de livros um botao delete, para apagar o livro (so no cliente, nao há persistencia de dados)
+- acrescentar uma componente de filtros que permita filtrar os livros por " já lidos", e "não lidos"
+
+
+
+
+
+ 
