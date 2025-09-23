@@ -1,7 +1,8 @@
-import { Routes } from '@angular/router';
+import { mapToCanActivate, Routes } from '@angular/router';
 import { Login } from './pages/login';
 import { EmployeeService } from './services/employee-service';
 import { authGuard } from './shared/guards/auth-guard';
+import { AuthGuard } from './shared/guards/auth-guard-class';
 
 export const routes: Routes = [
   { path: 'login', component: Login },
@@ -16,7 +17,8 @@ export const routes: Routes = [
   {
     path: 'employees',
     providers: [EmployeeService],
-    canActivate: [authGuard],
+    /* canActivate: [authGuard], */
+    canActivate: mapToCanActivate([AuthGuard]), 
     loadChildren: () => import('./pages/employees/employees-routes').then( m => m.routes)
   }
 ];
