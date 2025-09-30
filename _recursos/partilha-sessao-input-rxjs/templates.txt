@@ -1,0 +1,40 @@
+////// template candidate-list
+
+template: `
+    <h2>Candidates list</h2>
+    <table>
+      <caption>Search: <input [formControl]="searchControl"/></caption>
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Position</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let candidate of candidates$ | async">
+          <td>
+            <a [routerLink]="[candidate.id]">{{ candidate.firstName }} {{ candidate.lastName }}</a>
+          </td>
+          <td>{{ candidate.email }}</td>
+          <td>{{ candidate.position }}</td>
+        </tr>
+      </tbody>
+    </table>
+  `,
+
+
+  /// template edit-employee
+
+  <div>
+      <h1>Edit</h1>
+      <form [formGroup]="form">
+          <input type="text"  placeholder="firstName" formControlName="firstName">
+          <input type="text"  placeholder="lastName" formControlName="lastName">
+          <input type="text" placeholder="Email" formControlName="email">
+          <input type="text" placeholder="position" formControlName="position">
+          <input type="text"  placeholder="level" formControlName="level">
+
+          <button type="submit">save</button>
+      </form>
+  </div>
