@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-contact',
   imports: [],
   template: `
-    <p>
-      contact works!
-    </p>
+    <section class='contact'>
+      CONTACT COMPONENT
+    </section>
   `,
   styles: ``
 })

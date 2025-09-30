@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-home',
   imports: [],
   template: `
-    <p>
-      home works!
-    </p>
+     <section class='home'>
+      HOME COMPONENT
+    </section>
   `,
   styles: ``
 })

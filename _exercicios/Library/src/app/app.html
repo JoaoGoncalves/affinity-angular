@@ -1,4 +1,13 @@
 <main>
   <h1>Welcome to my Library</h1>
   <hr>
+  <nav>
+    <a [routerLink]="['/']">Home</a>
+    <a [routerLink]="['/books/list']">Books</a>
+    <a [routerLink]="['/contact']">Me</a>
+    <button (click)="logout()" *ngIf="isAuth$ | async">Logout</button>
+    <button (click)="login()" *ngIf="!(isAuth$ | async)">Login</button>
+
+  </nav>
+  <router-outlet />
 </main>
