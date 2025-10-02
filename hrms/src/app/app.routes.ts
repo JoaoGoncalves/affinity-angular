@@ -20,5 +20,10 @@ export const routes: Routes = [
     /* canActivate: [authGuard], */
     canActivate: mapToCanActivate([AuthGuard]), 
     loadChildren: () => import('./pages/employees/employees-routes').then( m => m.routes)
+  },
+  {
+    path: 'work',
+    canActivate: [authGuard],
+    loadChildren: () => import('./pages/work/work.routes').then( m => m.routes)
   }
 ];

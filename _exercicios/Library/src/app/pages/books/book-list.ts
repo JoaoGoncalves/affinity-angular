@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { BooksService } from '../../services/book.service';
 import { AsyncPipe, NgFor } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-book-list',
@@ -22,6 +21,7 @@ import { RouterLink } from '@angular/router';
   styles: ``
 })
 export class BookList {
+  
   private readonly booksService = inject(BooksService);
   books$ = this.booksService.getBooks();
 
