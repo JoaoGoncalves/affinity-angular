@@ -25,5 +25,10 @@ export const routes: Routes = [
     path: 'work',
     canActivate: [authGuard],
     loadChildren: () => import('./pages/work/work.routes').then( m => m.routes)
+  },
+  {
+    path: 'recruitment',
+    canActivate: [authGuard],
+    loadChildren: () => import('./pages/recruitment/recruitment.routes').then( m => m.routes)
   }
 ];

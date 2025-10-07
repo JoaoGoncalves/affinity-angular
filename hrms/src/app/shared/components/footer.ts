@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
+  standalone:true,
   imports: [AsyncPipe, NgIf, RouterLink],
 template: `
    <section>
