@@ -4,6 +4,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { CandidateService } from '../../services/candidate.service';
 import { debounceTime, Subject, takeUntil } from 'rxjs';
+import { createSearch } from '../../shared/functions/create-search';
 
 @Component({
   selector: 'app-candidate-list',
@@ -33,18 +34,20 @@ template: `
   `,
   styles: ``
 })
-export class CandidateList implements OnDestroy,OnInit {
+export class CandidateList implements /* OnDestroy, */OnInit {
   
   private readonly candidateService = inject(CandidateService);
   candidates$ = this.candidateService.getCandidates();
-  destroy$ = new Subject<void>();
 
+  //destroy$ = new Subject<void>();
   searchControl = new FormControl('');
 
-  search$ = this.searchControl.valueChanges.pipe(
+  /* search$ = this.searchControl.valueChanges.pipe(
     debounceTime(500),
     takeUntil(this.destroy$)
-  );
+  ); */
+
+  search$ = createSearch(this.searchControl)
 
   ngOnInit(): void {
     this.search$.subscribe((value) => {
@@ -56,10 +59,9 @@ export class CandidateList implements OnDestroy,OnInit {
     });
   }
 
-
-  ngOnDestroy(): void {
+  /* ngOnDestroy(): void {
     this.destroy$.next();
-  }
+  } */
 
 
 
